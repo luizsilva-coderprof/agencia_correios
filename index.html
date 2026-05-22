@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Atendimento</title>
     <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+    <link rel="icon" href="img/icon.png" type="image/x-icon"/>
 </head>
 <body>
+    <img src="img/correios.png" alt="Logo dos correios"/>
     <h1>Triagem de Atendimento</h1>
     <main>
-        Nome: <input type="text" id="txtnome" ><br>
-        Idade: <input type="number" id="txtidade"><br>
+        <label>Nome: <input type="text" id="txtnome" maxlength="40" ></label><br>
+        <label>Idade: <input type="number" id="txtidade" maxlength="2" min="1" max="120"></label><br>
         <input type="button" value="Verificar Senha" id="btn">
-        
         <div id="res">O resultado aparecerá aqui...</div>
     </main>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
