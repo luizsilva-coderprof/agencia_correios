@@ -22,6 +22,7 @@ function processar() {
     let nome = txtn.value
     let idade = Number(txti.value)
 
+    //&&
     if (nome == '' || txti.value == '') {
         res.innerHTML = '[ERRO] Obrigatório preencher os dados!'
         return 
@@ -41,14 +42,19 @@ function processar() {
     }
 
     let classe = ''
+    let classCSS = ''
     if (idade < 16) {
         classe = 'Atendimento Recusado (Menor de idade desacompanhado)'
+        classCSS = 'recusado'
     } else if (idade < 60) {
         classe = 'Fila Comum'
+        classCSS = 'aceito'
     } else if (idade < 80) {
         classe = 'Fila Prioritária'
+        classCSS = 'prioritaria'
     } else {
         classe = 'Fila Prioridade Especial (80+)'
+        classCSS = 'especial'
     }
 
     let guiche = ''
@@ -79,7 +85,8 @@ function processar() {
             break
     }
 
-    res.innerHTML = `<p>${saudacao}, <strong>${nome}</strong>!</p>`
+    res.className = classCSS
+    res.innerHTML = `<p>${saudacao}, <strong>${nome.toUpperCase()}</strong>!</p>`
     res.innerHTML += `<p>Sua classificação: <strong>${classe}</strong></p>`
     
     if (diaSem == 0 || diaSem == 6) {

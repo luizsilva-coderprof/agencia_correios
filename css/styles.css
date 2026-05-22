@@ -32,6 +32,29 @@ input#btn {
 div#res {
     margin-top: 20px;
     padding: 10px;
-    background: #e3e3e3;
     border-radius: 5px;
+}
+
+.recusado{
+    background-color: #ffcccc;
+    border: 2px solid red;
+    color: darkred;
+}
+
+.aceito{
+    background-color: #d4edda;
+    border: 2px solid green;
+    color: black;
+}
+
+.prioritaria{
+    background-color: #fff3cd;
+    border: 2px solid orange;
+    color: black;
+}
+
+.especial{
+    background-color: #e2d6ff;
+    border: 2px solid purple;
+    color: black;
 }
