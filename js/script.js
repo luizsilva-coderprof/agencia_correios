@@ -32,14 +32,15 @@ function processar() {
     let hora = agora.getHours()
     let diaSem = agora.getDay()
 
-    let saudacao = ''
+    //let saudacao = ''
     if (hora < 12) {
-        saudacao = 'Bom dia'
+        let saudacao = 'Bom dia'
     } else if (hora <= 18) {
         saudacao = 'Boa tarde'
     } else {
         saudacao = 'Boa noite'
     }
+
 
     let classe = ''
     let classCSS = ''
@@ -95,3 +96,4 @@ function processar() {
         res.innerHTML += `<p>Por favor, dirija-se ao: <strong>${guiche}</strong></p>`
     }
 }
+
