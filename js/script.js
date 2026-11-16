@@ -17,25 +17,9 @@ document.getElementById('btnlimpar')
     .addEventListener('click', limparFila);
 
 
-
-function classificar(idade) {
-
-    if (idade < 18) {
-        return 'Menor de idade';
-    } else if (idade < 60) {
-        return 'Comum';
-    } else if (idade < 80) {
-        return 'Prioritária';
-    } else {
-        return 'Especial';
-    }
-
-}
-
-
 function processar() {
 
-    let n = nome.value.trim();
+    let n = nome.value.trim().toUpperCase();
     let i = Number(idade.value);
 
     if (n === '' || idade.value === '') {
@@ -48,12 +32,12 @@ function processar() {
         return;
     }
 
-    let classe = classificar(i);
-
     if (i < 18) {
         res.textContent = 'Atendimento recusado!';
         return;
     }
+
+    let classe = classificar(i);
 
     contador++;
 
@@ -83,26 +67,6 @@ function processar() {
 }
 
 
-
-function exibirLista() {
-
-    lista.innerHTML = '';
-
-    for (let cliente of atendimentos) {
-
-        lista.innerHTML += `
-            <p>
-                ${cliente.senha} -
-                ${cliente.nome} -
-                ${cliente.classe}
-            </p>
-        `;
-
-    }
-
-}
-
-
 function pesquisar() {
     let termo = busca.value.trim().toLowerCase();
 
@@ -115,6 +79,10 @@ function pesquisar() {
         cliente => cliente.nome.toLowerCase().includes(termo)
         || cliente.senha.toLowerCase() === termo
     );
+
+    // let encontrados = atendimentos.filter(function(cliente) {
+    //     return cliente.nome.includes("Maria");
+    // });
 
     resultadoBusca.innerHTML = '';
 
@@ -134,6 +102,86 @@ function pesquisar() {
 }
 
 
+function limparFila() {
+    atendimentos = [];
+    contador = 0;
+
+    lista.innerHTML = '';
+    estatisticas.innerHTML = '';
+    res.textContent = 'Fila limpa com sucesso!';
+}
+
+
+function exibirLista() {
+
+    lista.innerHTML = '';
+
+    for (let cliente of atendimentos) {
+
+        lista.innerHTML += `
+            <p>
+                ${cliente.senha} -
+                ${cliente.nome} -
+                ${cliente.classe}
+            </p>
+        `;
+    }
+
+
+    // for(let i = 0; i < atendimentos.length; i++){
+    //      lista.innerHTML += `
+    //         <p>
+    //             ${atendimentos[i].senha} -
+    //             ${atendimentos[i].nome} -
+    //             ${atendimentos[i].classe}
+    //         </p>
+    //     `;
+    // }
+
+
+    // let i = 0;
+    // while(i < atendimentos.length){
+    //      lista.innerHTML += `
+    //         <p>
+    //             ${atendimentos[i].senha} -
+    //             ${atendimentos[i].nome} -
+    //             ${atendimentos[i].classe}
+    //         </p>
+    //     `;
+    //     i++;
+    // }
+
+
+    // let i = 0;
+    // do {
+    //     lista.innerHTML += `
+    //         <p>
+    //             ${atendimentos[i].senha} -
+    //             ${atendimentos[i].nome} -
+    //             ${atendimentos[i].classe}
+    //         </p>
+    //     `;
+
+    //     i++;
+    // } while (i < atendimentos.length);
+
+}
+
+
+function classificar(idade) {
+
+    if (idade < 18) {
+        return 'Menor de idade';
+    } else if (idade < 60) {
+        return 'Comum';
+    } else if (idade < 80) {
+        return 'Prioritária';
+    } else {
+        return 'Especial';
+    }
+
+}
+
 
 function exibirEstatisticas() {
 
@@ -146,14 +194,4 @@ function exibirEstatisticas() {
         Clientes prioritários: ${prioritarios.length}
     `;
 
-}
-
-
-function limparFila() {
-    atendimentos = [];
-    contador = 0;
-
-    lista.innerHTML = '';
-    estatisticas.innerHTML = '';
-    res.textContent = 'Fila limpa com sucesso!';
 }
