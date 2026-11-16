@@ -1,60 +1,120 @@
+
 body {
     font: normal 16pt Arial;
     background: #f4f4f4;
     text-align: center;
 }
+
 main {
     background: white;
     width: 450px;
+    max-width: calc(100% - 60px);
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+h2 {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+}
+
 input {
     font: normal 14pt Arial;
     width: 80%;
     margin: 10px 0;
     padding: 5px;
+    box-sizing: border-box;
 }
 
-input[type="text"]{
+input[type="text"] {
     text-transform: uppercase;
 }
 
-input#btn {
+input#btn,
+input#btnbuscar,
+input#btnlimpar {
     background: green;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    padding: 10px;
+    width: auto;
 }
-div#res {
+
+input#btn:hover,
+input#btnbuscar:hover,
+input#btnlimpar:hover {
+    background: darkgreen;
+}
+
+div#res,
+div#resultadoBusca,
+div#estatisticas,
+div#listaAtendimentos {
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
 }
 
-.recusado{
+hr {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.recusado {
     background-color: #ffcccc;
     border: 2px solid red;
     color: darkred;
 }
 
-.aceito{
+.aceito {
     background-color: #d4edda;
     border: 2px solid green;
     color: black;
 }
 
-.prioritaria{
+.prioritaria {
     background-color: #fff3cd;
     border: 2px solid orange;
     color: black;
 }
 
-.especial{
+.especial {
     background-color: #e2d6ff;
     border: 2px solid purple;
     color: black;
+}
+
+.cliente {
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14pt;
+}
+
+.cliente p {
+    margin: 8px 0;
+}
+
+@media (max-width: 500px) {
+
+    main {
+        width: auto;
+        max-width: none;
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    body {
+        font-size: 14pt;
+    }
+
 }

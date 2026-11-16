@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,16 +9,43 @@
     <link rel="icon" href="img/icon.png" type="image/x-icon"/>
 </head>
 <body>
-    <img src="img/correios.png" alt="Logo dos correios"/>
+    <img src="img/correios.png" alt="Logo dos Correios"/>
     <h1>Triagem de Atendimento</h1>
     <main>
-        <label>Nome: <input type="text" id="txtnome" maxlength="40" ></label><br>
+        <h2>Cadastrar Cliente</h2>
+        <label>
+            Nome:
+            <input type="text" id="txtnome" maxlength="40">
+        </label>
+        <br>
+        <label>
+            Idade:
+            <input type="number" id="txtidade" min="1" max="120">
+        </label><br>
 
-        <label>Idade: <input type="number" id="txtidade" maxlength="3" min="1" max="120"></label><br>
+        <input type="button" value="Cadastrar Atendimento" id="btn">
 
-        <input type="button" value="Verificar Senha" id="btn">
+        <div id="res"></div>
 
-        <div id="res">O resultado aparecerá aqui...</div>
+        <hr>
+
+        <h2>Consultar Cliente</h2>
+        <input type="text" id="txtbusca" placeholder="Nome ou senha">
+        <input type="button" value="Pesquisar" id="btnbuscar">
+
+        <div id="resultadoBusca"></div>
+
+        <hr>
+
+        <h2>Estatísticas</h2>
+        <div id="estatisticas"></div>
+
+        <hr>
+
+        <h2>Fila de Atendimento</h2>
+        <div id="listaAtendimentos"></div>
+
+        <input type="button" value="Limpar Fila" id="btnlimpar">
     </main>
     <script src="js/script.js"></script>
 </body>
