@@ -11,8 +11,8 @@ let contador = 0;
 
 
 botao.addEventListener('click', processar);
-document.getElementById('btnbuscar')
-    .addEventListener('click', pesquisar);
+// document.getElementById('btnbuscar')
+//     .addEventListener('click', pesquisar);
 document.getElementById('btnlimpar')
     .addEventListener('click', limparFila);
 
@@ -67,39 +67,39 @@ function processar() {
 }
 
 
-function pesquisar() {
-    let termo = busca.value.trim().toLowerCase();
+// function pesquisar() {
+//     let termo = busca.value.trim().toLowerCase();
 
-    if (termo === '') {
-        resultadoBusca.textContent = 'Digite um nome ou uma senha para pesquisar!';
-        return;
-    }
+//     if (termo === '') {
+//         resultadoBusca.textContent = 'Digite um nome ou uma senha para pesquisar!';
+//         return;
+//     }
 
-    let encontrados = atendimentos.filter(
-        cliente => cliente.nome.toLowerCase().includes(termo)
-        || cliente.senha.toLowerCase() === termo
-    );
+//     let encontrados = atendimentos.filter(
+//         cliente => cliente.nome.toLowerCase().includes(termo)
+//         || cliente.senha.toLowerCase() === termo
+//     );
 
-    // let encontrados = atendimentos.filter(function(cliente) {
-    //     return cliente.nome.includes("Maria");
-    // });
+//     // let encontrados = atendimentos.filter(function(cliente) {
+//     //     return cliente.nome.includes("Maria");
+//     // });
 
-    resultadoBusca.innerHTML = '';
+//     resultadoBusca.innerHTML = '';
 
-    if (encontrados.length === 0) {
-        resultadoBusca.textContent = 'Cliente não encontrado!';
-        return;
-    }
+//     if (encontrados.length === 0) {
+//         resultadoBusca.textContent = 'Cliente não encontrado!';
+//         return;
+//     }
 
-    encontrados.forEach(cliente => {
-        resultadoBusca.innerHTML += `
-            <p>
-                ${cliente.nome} - ${cliente.senha}
-                - ${cliente.classe}
-            </p>
-        `;
-    });
-}
+//     encontrados.forEach(cliente => {
+//         resultadoBusca.innerHTML += `
+//             <p>
+//                 ${cliente.nome} - ${cliente.senha}
+//                 - ${cliente.classe}
+//             </p>
+//         `;
+//     });
+// }
 
 
 function limparFila() {
